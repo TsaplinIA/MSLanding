@@ -61,7 +61,7 @@ PORT = 8000
 # Создаем сервер с нашим обработчиком
 httpd = HTTPServer(('0.0.0.0', PORT), SimpleHandler)
 
-print(f"Сервер запущен на http://0.0.0.0:{PORT}")
+print(f"Сервер запущен на http://localhost:{PORT}")
 print("Для остановки нажмите Ctrl+C")
 
 # Запускаем сервер

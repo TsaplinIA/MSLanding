@@ -6,6 +6,11 @@
     <title>MafiaStyle - Клуб интеллектуальных игр</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- PhotoSwipe CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/default-skin/default-skin.min.css">
 </head>
 <body>
     <header id="header">
@@ -150,9 +155,19 @@
                     <div class="commentary-text">
                         <p>Наша комментаторская команда освещает все турниры по мафии в Поволжье. Профессиональные комментаторы делают игры еще более увлекательными и доступными для зрителей.</p>
                         <p>Мы транслируем все значимые турниры на наших каналах, сопровождая их экспертными комментариями и аналитикой. Наша команда комментаторов состоит из опытных игроков, которые помогут вам лучше понять стратегии и тактики игры.</p>
-                        <div class="commentary-links">
-                            <a href="https://t.me/mafstylecom" class="social-icon"><i class="fab fa-telegram"></i></a>
-                            <a href="https://www.twitch.tv/mafia_style_online" class="social-icon"><i class="fab fa-twitch"></i></a>
+                        <div class="social-links">
+                            <div class="social-item">
+                                <a href="https://t.me/mafstylecom" target="_blank" class="social-icon">
+                                    <i class="fab fa-telegram"></i>
+                                </a>
+                                <p>Телеграм канал</p>
+                            </div>
+                            <div class="social-item">
+                                <a href="https://www.twitch.tv/mafia_style_online" target="_blank" class="social-icon">
+                                    <i class="fab fa-twitch"></i>
+                                </a>
+                                <p>Трансляции на Twitch</p>
+                            </div>
                         </div>
                     </div>
                     <div class="commentary-image">
@@ -166,7 +181,9 @@
             <div class="container">
                 <h2>Как нас найти</h2>
                 <div class="location-content">
+                    <!-- Контакты в две колонки -->
                     <div class="location-info">
+                        <!-- Левая колонка с контактной информацией -->
                         <div class="contact-info">
                             <div class="contact-item">
                                 <i class="fas fa-map-marker-alt"></i>
@@ -181,31 +198,61 @@
                                 <p>info@mafiastyle.ru</p>
                             </div>
                         </div>
-                        <div class="social-links">
-                            <a href="https://vk.com/kazan_mafia_style" target="_blank" class="social-icon"><i class="fab fa-vk"></i></a>
-                            <a href="https://t.me/mafia_style_kzn" target="_blank" class="social-icon"><i class="fab fa-telegram"></i></a>
-                            <a href="https://www.instagram.com/mafia_kzn" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+
+                        <!-- Правая колонка с социальными сетями -->
+                        <div class="social-info">
+                            <div class="social-item">
+                                <a href="https://vk.com/kazan_mafia_style" target="_blank" class="social-icon">
+                                    <i class="fab fa-vk"></i>
+                                </a>
+                                <p>Мы ВКонтакте</p>
+                            </div>
+                            <div class="social-item">
+                                <a href="https://t.me/mafia_style_kzn" target="_blank" class="social-icon">
+                                    <i class="fab fa-telegram"></i>
+                                </a>
+                                <p>Наш Телеграм</p>
+                            </div>
+                            <div class="social-item">
+                                <a href="https://www.instagram.com/mafia_kzn" target="_blank" class="social-icon">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <p>Instagram</p>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Фотографии локации -->
-                    <div class="location-photos">
-                        <div class="photos-grid">
-                            <div class="photo-item">
-                                <img src="/images/inter1.jpg" alt="Зал 1">
+                    <!-- Новая структура с слайдером и картой -->
+                    <div class="location-gallery-map">
+                        <!-- Swiper слайдер -->
+                        <div class="location-slider">
+                            <div class="swiper mySwiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="/images/inter1.jpg" alt="Зал 1" class="slider-image">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/images/inter2.jpg" alt="Зал 2" class="slider-image">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/images/inter3.jpg" alt="Ресепшн" class="slider-image">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/images/inter4.jpg" alt="Кафе" class="slider-image">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="/images/inter5.jpg" alt="Кафе2" class="slider-image">
+                                    </div>
+                                </div>
+                                <div class="swiper-pagination"></div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
                             </div>
-                            <div class="photo-item">
-                                <img src="/images/inter2.jpg" alt="Зал 2">
-                            </div>
-                            <div class="photo-item">
-                                <img src="/images/inter3.jpg" alt="Ресепшн">
-                            </div>
-                            <div class="photo-item">
-                                <img src="/images/inter4.jpg" alt="Кафе">
-                            </div>
-                            <div class="photo-item">
-                                <img src="/images/inter5.jpg" alt="Кафе2">
-                            </div>
+                        </div>
+
+                        <!-- Яндекс Карта -->
+                        <div class="location-map">
+                            <iframe src="https://yandex.ru/map-widget/v1/?ll=49.125800%2C55.794131&z=18&pt=49.125496%2C55.794215,pm2rdm" frameborder="0" allowfullscreen="true" class="map-iframe"></iframe>
                         </div>
                     </div>
                 </div>
@@ -243,6 +290,46 @@
         </div>
     </footer>
 
+    <!-- Модальная галерея PhotoSwipe -->
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div>
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                    <button class="pswp__button pswp__button--share" title="Share"></button>
+                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript-библиотеки -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
