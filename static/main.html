@@ -4,291 +4,351 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MafiaStyle - Клуб интеллектуальных игр</title>
-    <link rel="stylesheet" href="styles.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Конфигурация Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#121212',
+                        accent: '#ff0000',
+                        'accent-hover': '#ff3333',
+                        secondary: '#333333',
+                        'button-color': '#555555',
+                        'button-hover': '#8a5252'
+                    },
+                    fontFamily: {
+                        'sans': ['Arial', 'sans-serif']
+                    },
+                    maxWidth: {
+                        'container': '1200px'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- AOS CSS - Анимации при скролле -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <!-- PhotoSwipe CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+    <!-- Подключаем кастомные стили -->
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <header id="header">
-        <nav>
-            <div class="logo">MafiaStyle</div>
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+<body class="bg-dark text-white font-sans leading-relaxed overflow-x-hidden text-lg">
+    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 bg-opacity-90 bg-black">
+        <nav class="flex justify-between items-center h-20 px-8 md:px-16 max-w-container mx-auto">
+            <div class="text-2xl font-bold text-accent uppercase tracking-wide">MafiaStyle</div>
+
+            <div class="menu-toggle md:hidden flex flex-col cursor-pointer z-50">
+                <span class="block w-7 h-0.5 bg-white my-1 transition-all duration-300"></span>
+                <span class="block w-7 h-0.5 bg-white my-1 transition-all duration-300"></span>
+                <span class="block w-7 h-0.5 bg-white my-1 transition-all duration-300"></span>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#hero" class="active">Главная</a></li>
-                <li><a href="#about">О клубе</a></li>
-                <li><a href="#rating">Рейтинг</a></li>
-                <li><a href="#corporate">Корпоративы</a></li>
-                <li><a href="#commentary">Комментаторская</a></li>
-                <li><a href="#location">Контакты</a></li>
+
+            <ul class="nav-menu fixed top-0 -right-full w-full h-screen md:h-auto md:w-auto md:static flex flex-col md:flex-row justify-center md:justify-start items-center bg-black bg-opacity-95 md:bg-transparent transition-all duration-300 z-40">
+                <li class="md:ml-8 my-4 md:my-0"><a href="#hero" class="nav-link text-lg md:text-base text-white hover:text-accent transition-all duration-300 relative px-4 py-3 md:py-2.5 block md:inline-block">Главная</a></li>
+                <li class="md:ml-8 my-4 md:my-0"><a href="#about" class="nav-link text-lg md:text-base text-white hover:text-accent transition-all duration-300 relative px-4 py-3 md:py-2.5 block md:inline-block">О клубе</a></li>
+                <li class="md:ml-8 my-4 md:my-0"><a href="#rating" class="nav-link text-lg md:text-base text-white hover:text-accent transition-all duration-300 relative px-4 py-3 md:py-2.5 block md:inline-block">Рейтинг</a></li>
+                <li class="md:ml-8 my-4 md:my-0"><a href="#corporate" class="nav-link text-lg md:text-base text-white hover:text-accent transition-all duration-300 relative px-4 py-3 md:py-2.5 block md:inline-block">Корпоративы</a></li>
+                <li class="md:ml-8 my-4 md:my-0"><a href="#commentary" class="nav-link text-lg md:text-base text-white hover:text-accent transition-all duration-300 relative px-4 py-3 md:py-2.5 block md:inline-block">Комментаторская</a></li>
+                <li class="md:ml-8 my-4 md:my-0"><a href="#location" class="nav-link text-lg md:text-base text-white hover:text-accent transition-all duration-300 relative px-4 py-3 md:py-2.5 block md:inline-block">Контакты</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="hero" class="section">
-            <div class="container">
-                <h1>MafiaStyle</h1>
-                <p class="subtitle">Клуб интеллектуальных игр</p>
-                <a href="https://t.me/Zarina_Valiyllina?text=Привет!%20Я хочу записаться на игру!" target="_blank" class="cta-button">Записаться на игру</a>
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center justify-center pt-20 bg-cover bg-center bg-fixed bg-blend-darken bg-black/70" style="background-image: url('https://via.placeholder.com/1920x1080')">
+            <div class="container mx-auto px-4 text-center">
+                <h1 data-aos="fade-up" class="text-5xl md:text-6xl uppercase tracking-wider font-bold mb-6">MafiaStyle</h1>
+                <p data-aos="fade-up" data-aos-delay="200" class="text-xl md:text-2xl mb-8">Клуб интеллектуальных игр</p>
+                <a data-aos="fade-up" data-aos-delay="400" href="https://t.me/Zarina_Valiyllina?text=Привет!%20Я хочу записаться на игру!" target="_blank" class="cta-button inline-block bg-button-color text-white py-3 px-6 rounded-full font-bold uppercase tracking-wide border-2 border-button-color transition duration-300 hover:bg-button-hover hover:border-button-hover hover:translate-y-[-3px] hover:shadow-lg">Записаться на игру</a>
 
-                <div class="hero-social-links">
-                    <a href="https://vk.com/kazan_mafia_style" target="_blank" class="social-icon"><i class="fab fa-vk"></i></a>
-                    <a href="https://t.me/mafia_style_kzn" target="_blank" class="social-icon"><i class="fab fa-telegram"></i></a>
-                    <a href="https://www.instagram.com/mafia_kzn" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <div data-aos="fade-up" data-aos-delay="600" class="flex justify-center gap-5 mt-10">
+                    <a href="https://vk.com/kazan_mafia_style" target="_blank" class="social-icon flex items-center justify-center w-12 h-12 rounded-full bg-white/10 text-white text-2xl transition duration-300 hover:bg-button-hover hover:translate-y-[-5px] hover:shadow-lg">
+                        <i class="fab fa-vk"></i>
+                    </a>
+                    <a href="https://t.me/mafia_style_kzn" target="_blank" class="social-icon flex items-center justify-center w-12 h-12 rounded-full bg-white/10 text-white text-2xl transition duration-300 hover:bg-button-hover hover:translate-y-[-5px] hover:shadow-lg">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://www.instagram.com/mafia_kzn" target="_blank" class="social-icon flex items-center justify-center w-12 h-12 rounded-full bg-white/10 text-white text-2xl transition duration-300 hover:bg-button-hover hover:translate-y-[-5px] hover:shadow-lg">
+                        <i class="fab fa-instagram"></i>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="section">
-            <div class="container">
-                <h2>О нашем клубе</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>MafiaStyle - это клуб, где собираются любители интеллектуальных игр для соревнований и приятного общения.</p>
-                        <p>Мы проводим регулярные игры для новичков и профессионалов, корпоративные мероприятия и турниры.</p>
-                        <p>Наша команда состоит из опытных ведущих, которые сделают вашу игру незабываемой.</p>
+        <!-- О клубе -->
+        <section id="about" class="py-20">
+            <div class="container max-w-container mx-auto px-6 lg:px-8">
+                <h2 data-aos="fade-up" class="text-3xl md:text-4xl font-bold text-center mb-16 relative after-heading">О нашем клубе</h2>
+                <div class="flex flex-wrap justify-between items-center gap-10 lg:gap-16">
+                    <div data-aos="fade-right" class="flex-1 min-w-[300px] flex flex-col justify-center">
+                        <p class="mb-6 text-lg leading-relaxed">MafiaStyle - это клуб, где собираются любители интеллектуальных игр для соревнований и приятного общения.</p>
+                        <p class="mb-6 text-lg leading-relaxed">Мы проводим регулярные игры для новичков и профессионалов, корпоративные мероприятия и турниры.</p>
+                        <p class="text-lg leading-relaxed">Наша команда состоит из опытных ведущих, которые сделают вашу игру незабываемой.</p>
                     </div>
-                    <div class="about-image">
-                        <img src="/images/allinone.jpg" alt="Фото клуба MafiaStyle">
+                    <div data-aos="fade-left" data-aos-delay="200" class="flex-1 min-w-[280px] text-center">
+                        <img src="/images/allinone.jpg" alt="Фото клуба MafiaStyle" class="max-w-full h-full object-cover rounded-lg shadow-xl">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="rating" class="section">
-            <div class="container">
-                <h2>Рейтинг игроков</h2>
-                <div class="rating-content">
-                    <div class="rating-info">
-                        <p>Наш клуб ведет рейтинг всех игроков. Участвуйте в играх, получайте баллы и поднимайтесь в таблице лидеров!</p>
-                        <p>Каждый месяц топ-10 игроков получают призы и специальные привилегии на следующие игры.</p>
+        <!-- Рейтинг -->
+        <section id="rating" class="py-20">
+            <div class="container max-w-container mx-auto px-6 lg:px-8">
+                <h2 data-aos="fade-up" class="text-3xl md:text-4xl font-bold text-center mb-16 relative after-heading">Рейтинг игроков</h2>
+                <div class="flex flex-col gap-8">
+                    <div data-aos="fade-up" class="text-center max-w-3xl mx-auto mb-10">
+                        <p class="mb-6 text-lg leading-relaxed">Наш клуб ведет рейтинг всех игроков. Участвуйте в играх, получайте баллы и поднимайтесь в таблице лидеров!</p>
+                        <p class="text-lg leading-relaxed">Каждый месяц топ-10 игроков получают призы и специальные привилегии на следующие игры.</p>
                     </div>
-                    <div class="rating-table-container">
-                        <table class="rating-table">
+                    <div data-aos="fade-up" data-aos-delay="200" class="overflow-x-auto bg-white/5 rounded-lg p-5 shadow-lg">
+                        <table class="w-full border-collapse text-left">
                             <thead>
                                 <tr>
-                                    <th>Место</th>
-                                    <th>Игрок</th>
-                                    <th>Игр</th>
-                                    <th>Побед</th>
-                                    <th>Рейтинг</th>
+                                    <th class="py-4 px-3 border-b border-white/10 text-sm uppercase font-bold text-accent tracking-wider">Место</th>
+                                    <th class="py-4 px-3 border-b border-white/10 text-sm uppercase font-bold text-accent tracking-wider">Игрок</th>
+                                    <th class="py-4 px-3 border-b border-white/10 text-sm uppercase font-bold text-accent tracking-wider">Игр</th>
+                                    <th class="py-4 px-3 border-b border-white/10 text-sm uppercase font-bold text-accent tracking-wider">Побед</th>
+                                    <th class="py-4 px-3 border-b border-white/10 text-sm uppercase font-bold text-accent tracking-wider">Рейтинг</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Алексей К.</td>
-                                    <td>42</td>
-                                    <td>18</td>
-                                    <td>2845</td>
+                                <tr class="hover:bg-white/10 transition-colors duration-200">
+                                    <td class="py-4 px-3 border-b border-white/10">1</td>
+                                    <td class="py-4 px-3 border-b border-white/10">Алексей К.</td>
+                                    <td class="py-4 px-3 border-b border-white/10">42</td>
+                                    <td class="py-4 px-3 border-b border-white/10">18</td>
+                                    <td class="py-4 px-3 border-b border-white/10">2845</td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Марина С.</td>
-                                    <td>38</td>
-                                    <td>15</td>
-                                    <td>2792</td>
+                                <tr class="hover:bg-white/10 transition-colors duration-200">
+                                    <td class="py-4 px-3 border-b border-white/10">2</td>
+                                    <td class="py-4 px-3 border-b border-white/10">Марина С.</td>
+                                    <td class="py-4 px-3 border-b border-white/10">38</td>
+                                    <td class="py-4 px-3 border-b border-white/10">15</td>
+                                    <td class="py-4 px-3 border-b border-white/10">2792</td>
                                 </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Дмитрий В.</td>
-                                    <td>45</td>
-                                    <td>14</td>
-                                    <td>2731</td>
+                                <tr class="hover:bg-white/10 transition-colors duration-200">
+                                    <td class="py-4 px-3 border-b border-white/10">3</td>
+                                    <td class="py-4 px-3 border-b border-white/10">Дмитрий В.</td>
+                                    <td class="py-4 px-3 border-b border-white/10">45</td>
+                                    <td class="py-4 px-3 border-b border-white/10">14</td>
+                                    <td class="py-4 px-3 border-b border-white/10">2731</td>
                                 </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Ольга М.</td>
-                                    <td>36</td>
-                                    <td>12</td>
-                                    <td>2695</td>
+                                <tr class="hover:bg-white/10 transition-colors duration-200">
+                                    <td class="py-4 px-3 border-b border-white/10">4</td>
+                                    <td class="py-4 px-3 border-b border-white/10">Ольга М.</td>
+                                    <td class="py-4 px-3 border-b border-white/10">36</td>
+                                    <td class="py-4 px-3 border-b border-white/10">12</td>
+                                    <td class="py-4 px-3 border-b border-white/10">2695</td>
                                 </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Игорь П.</td>
-                                    <td>39</td>
-                                    <td>13</td>
-                                    <td>2680</td>
+                                <tr class="hover:bg-white/10 transition-colors duration-200">
+                                    <td class="py-4 px-3 border-b border-white/10">5</td>
+                                    <td class="py-4 px-3 border-b border-white/10">Игорь П.</td>
+                                    <td class="py-4 px-3 border-b border-white/10">39</td>
+                                    <td class="py-4 px-3 border-b border-white/10">13</td>
+                                    <td class="py-4 px-3 border-b border-white/10">2680</td>
                                 </tr>
                             </tbody>
                         </table>
-                        <a href="#" class="rating-button">Полный рейтинг</a>
+                        <div class="text-center mt-6">
+                            <a href="#" class="inline-block px-5 py-2 border-2 border-button-color text-button-color rounded-full font-bold transition duration-300 hover:bg-button-hover hover:text-white hover:border-button-hover hover:translate-y-[-3px]">Полный рейтинг</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="corporate" class="section">
-            <div class="container">
-                <h2>Корпоративные мероприятия</h2>
-                <div class="corporate-content">
-                    <div class="corporate-image">
-                        <img src="/images/allinone.jpg" alt="Корпоративное мероприятие">
+        <!-- Корпоративные мероприятия -->
+        <section id="corporate" class="py-20">
+            <div class="container max-w-container mx-auto px-6 lg:px-8">
+                <h2 data-aos="fade-up" class="text-3xl md:text-4xl font-bold text-center mb-16 relative after-heading">Корпоративные мероприятия</h2>
+                <div class="flex flex-wrap justify-between items-center gap-10 lg:gap-16">
+                    <div data-aos="fade-right" class="flex-1 min-w-[280px] order-2 md:order-1 text-center">
+                        <img src="/images/allinone.jpg" alt="Корпоративное мероприятие" class="max-w-full h-full object-cover rounded-lg shadow-xl">
                     </div>
-                    <div class="corporate-text">
-                        <p>Мы организуем интеллектуальные игры для компаний любого размера. Это отличный способ для командообразования и неформального общения между сотрудниками.</p>
-                        <h3>Что мы предлагаем:</h3>
-                        <ul>
-                            <li>Профессиональных ведущих</li>
-                            <li>Индивидуальный сценарий</li>
-                            <li>Игры для групп от 10 до 100 человек</li>
-                            <li>Фотоотчет мероприятия</li>
+                    <div data-aos="fade-left" data-aos-delay="200" class="flex-1 min-w-[300px] order-1 md:order-2 flex flex-col justify-center">
+                        <p class="mb-6 text-lg leading-relaxed">Мы организуем интеллектуальные игры для компаний любого размера. Это отличный способ для командообразования и неформального общения между сотрудниками.</p>
+                        <h3 class="text-2xl font-bold mb-6 mt-4">Что мы предлагаем:</h3>
+                        <ul class="mb-8 list-inside space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mr-4 mt-1 text-lg"></i>
+                                <span class="text-lg">Профессиональных ведущих</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mr-4 mt-1 text-lg"></i>
+                                <span class="text-lg">Индивидуальный сценарий</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mr-4 mt-1 text-lg"></i>
+                                <span class="text-lg">Игры для групп от 10 до 100 человек</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mr-4 mt-1 text-lg"></i>
+                                <span class="text-lg">Фотоотчет мероприятия</span>
+                            </li>
                         </ul>
-                        <a href="https://t.me/ElfimovEA?text=Здравствуйте%21%20Хотелось%20бы%20обсудить%20проведение%20корпоративного%20мероприятия.%20Подскажите%2C%20когда%20удобно%20поговорить%3F" target="_blank" class="cta-button">Заказать мероприятие</a>
+                        <a href="https://t.me/ElfimovEA?text=Здравствуйте%21%20Хотелось%20бы%20обсудить%20проведение%20корпоративного%20мероприятия.%20Подскажите%2C%20когда%20удобно%20поговорить%3F" target="_blank" class="cta-button inline-block bg-button-color text-white py-3 px-6 rounded-full font-bold uppercase tracking-wide border-2 border-button-color transition duration-300 hover:bg-button-hover hover:border-button-hover hover:translate-y-[-3px] hover:shadow-lg max-w-xs">Заказать мероприятие</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="commentary" class="section">
-            <div class="container">
-                <h2>Комментаторская</h2>
-                <div class="commentary-content">
-                    <div class="commentary-text">
-                        <p>Наша комментаторская команда освещает все турниры по мафии в Поволжье. Профессиональные комментаторы делают игры еще более увлекательными и доступными для зрителей.</p>
-                        <p>Мы транслируем все значимые турниры на наших каналах, сопровождая их экспертными комментариями и аналитикой. Наша команда комментаторов состоит из опытных игроков, которые помогут вам лучше понять стратегии и тактики игры.</p>
-                        <div class="social-links">
-                            <div class="social-item">
-                                <a href="https://t.me/mafstylecom" target="_blank" class="social-icon">
+        <!-- Комментаторская -->
+        <section id="commentary" class="py-20">
+            <div class="container max-w-container mx-auto px-6 lg:px-8">
+                <h2 data-aos="fade-up" class="text-3xl md:text-4xl font-bold text-center mb-16 relative after-heading">Комментаторская</h2>
+                <div class="flex flex-wrap justify-between items-center gap-10 lg:gap-16">
+                    <div data-aos="fade-right" class="flex-1 min-w-[300px] flex flex-col justify-center">
+                        <p class="mb-6 text-lg leading-relaxed">Наша комментаторская команда освещает все турниры по мафии в Поволжье. Профессиональные комментаторы делают игры еще более увлекательными и доступными для зрителей.</p>
+                        <p class="mb-8 text-lg leading-relaxed">Мы транслируем все значимые турниры на наших каналах, сопровождая их экспертными комментариями и аналитикой. Наша команда комментаторов состоит из опытных игроков, которые помогут вам лучше понять стратегии и тактики игры.</p>
+
+                        <div class="flex flex-col gap-6 mt-8">
+                            <div data-aos="fade-up" data-aos-delay="100" class="flex items-center">
+                                <a href="https://t.me/mafstylecom" target="_blank" class="flex items-center justify-center w-12 h-12 rounded-full bg-white/10 text-white text-xl mr-5 transition duration-300 hover:bg-button-hover hover:scale-110">
                                     <i class="fab fa-telegram"></i>
                                 </a>
-                                <p>Телеграм канал</p>
+                                <p class="m-0 text-lg">Телеграм канал</p>
                             </div>
-                            <div class="social-item">
-                                <a href="https://www.twitch.tv/mafia_style_online" target="_blank" class="social-icon">
+                            <div data-aos="fade-up" data-aos-delay="200" class="flex items-center">
+                                <a href="https://www.twitch.tv/mafia_style_online" target="_blank" class="flex items-center justify-center w-12 h-12 rounded-full bg-white/10 text-white text-xl mr-5 transition duration-300 hover:bg-button-hover hover:scale-110">
                                     <i class="fab fa-twitch"></i>
                                 </a>
-                                <p>Трансляции на Twitch</p>
+                                <p class="m-0 text-lg">Трансляции на Twitch</p>
                             </div>
                         </div>
                     </div>
-                    <div class="commentary-image">
-                        <img src="/images/allinone.jpg" alt="Комментаторская MafiaStyle">
+                    <div data-aos="fade-left" data-aos-delay="300" class="flex-1 min-w-[280px] text-center">
+                        <img src="/images/allinone.jpg" alt="Комментаторская MafiaStyle" class="max-w-full rounded-lg shadow-xl h-full object-cover">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Секция "Как нас найти" с обновленной структурой для карты -->
-        <section id="location" class="section">
-            <div class="container">
-                <h2>Как нас найти</h2>
-                <div class="location-content">
-                    <!-- Контакты в две колонки -->
-                    <div class="location-info">
-                        <!-- Левая колонка с контактной информацией -->
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <p>Казань, ул. Пушкина, д. 52</p>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-phone"></i>
-                                <p>+7 (999) 123-45-67</p>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <p>info@mafiastyle.ru</p>
-                            </div>
-                        </div>
+        <!-- Контакты -->
+        <section id="location" class="py-20">
+            <div class="container max-w-container mx-auto px-6 lg:px-8">
+                <h2 data-aos="fade-up" class="text-3xl md:text-4xl font-bold text-center mb-16 relative after-heading">Как нас найти</h2>
 
-                        <!-- Правая колонка с социальными сетями -->
-                        <div class="social-info">
-                            <div class="social-item">
-                                <a href="https://vk.com/kazan_mafia_style" target="_blank" class="social-icon">
-                                    <i class="fab fa-vk"></i>
-                                </a>
-                                <p>Мы ВКонтакте</p>
-                            </div>
-                            <div class="social-item">
-                                <a href="https://t.me/mafia_style_kzn" target="_blank" class="social-icon">
-                                    <i class="fab fa-telegram"></i>
-                                </a>
-                                <p>Наш Телеграм</p>
-                            </div>
-                            <div class="social-item">
-                                <a href="https://www.instagram.com/mafia_kzn" target="_blank" class="social-icon">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <p>Instagram</p>
-                            </div>
+                <!-- Контактная информация -->
+                <div data-aos="fade-up" class="flex flex-wrap justify-between gap-8 mb-16">
+                    <!-- Левая колонка с контактной информацией -->
+                    <div class="flex-1 min-w-[250px] space-y-6">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-accent text-2xl mr-5"></i>
+                            <p class="m-0 text-lg">Казань, ул. Пушкина, д. 52</p>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-accent text-2xl mr-5"></i>
+                            <p class="m-0 text-lg">+7 (999) 123-45-67</p>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-accent text-2xl mr-5"></i>
+                            <p class="m-0 text-lg">info@mafiastyle.ru</p>
                         </div>
                     </div>
 
-                    <!-- Обновленная структура с слайдером и картой -->
-                    <div class="location-gallery-map">
-                        <!-- Swiper слайдер -->
-                        <div class="location-slider">
-                            <div class="swiper mySwiper">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <img src="/images/inter1.jpg" alt="Зал 1" class="slider-image">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/images/inter2.jpg" alt="Зал 2" class="slider-image">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/images/inter3.jpg" alt="Ресепшн" class="slider-image">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/images/inter4.jpg" alt="Кафе" class="slider-image">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="/images/inter5.jpg" alt="Кафе2" class="slider-image">
-                                    </div>
-                                </div>
-                                <div class="swiper-pagination"></div>
-                                <div class="swiper-button-next"></div>
-                                <div class="swiper-button-prev"></div>
-                            </div>
+                    <!-- Правая колонка с социальными сетями -->
+                    <div class="flex-1 min-w-[250px] space-y-6">
+                        <div class="flex items-center">
+                            <a href="https://vk.com/kazan_mafia_style" target="_blank" class="flex items-center justify-center w-12 h-12 rounded-full bg-white/10 text-white text-xl mr-5 transition duration-300 hover:bg-button-hover hover:scale-110">
+                                <i class="fab fa-vk"></i>
+                            </a>
+                            <p class="m-0 text-lg">Мы ВКонтакте</p>
                         </div>
+                        <div class="flex items-center">
+                            <a href="https://t.me/mafia_style_kzn" target="_blank" class="flex items-center justify-center w-12 h-12 rounded-full bg-white/10 text-white text-xl mr-5 transition duration-300 hover:bg-button-hover hover:scale-110">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                            <p class="m-0 text-lg">Наш Телеграм</p>
+                        </div>
+                        <div class="flex items-center">
+                            <a href="https://www.instagram.com/mafia_kzn" target="_blank" class="flex items-center justify-center w-12 h-12 rounded-full bg-white/10 text-white text-xl mr-5 transition duration-300 hover:bg-button-hover hover:scale-110">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <p class="m-0 text-lg">Instagram</p>
+                        </div>
+                    </div>
+                </div>
 
-                        <!-- Яндекс Карта с дополнительным контейнером -->
-                        <div class="location-map">
-                            <div class="map-container">
-                                <iframe src="https://yandex.ru/map-widget/v1/?ll=49.125800%2C55.794131&z=18&pt=49.125496%2C55.794215,pm2rdm" frameborder="0" allowfullscreen="true" class="map-iframe"></iframe>
+                <!-- Галерея и карта -->
+                <div class="flex flex-wrap gap-8">
+                    <!-- Swiper слайдер -->
+                    <div data-aos="fade-right" class="flex-1 min-w-[300px] h-[400px]">
+                        <div class="swiper mySwiper h-full rounded-lg overflow-hidden shadow-xl">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="/images/inter1.jpg" alt="Зал 1" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="/images/inter2.jpg" alt="Зал 2" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="/images/inter3.jpg" alt="Ресепшн" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="/images/inter4.jpg" alt="Кафе" class="w-full h-full object-cover">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="/images/inter5.jpg" alt="Кафе2" class="w-full h-full object-cover">
+                                </div>
                             </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
                         </div>
+                    </div>
+
+                    <!-- Яндекс Карта -->
+                    <div data-aos="fade-left" class="flex-1 min-w-[300px] h-[400px]">
+                        <iframe src="https://yandex.ru/map-widget/v1/?ll=49.125800%2C55.794131&z=18&pt=49.125496%2C55.794215,pm2rdm" frameborder="0" allowfullscreen="true" class="w-full h-full rounded-lg shadow-xl"></iframe>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <div class="logo">MafiaStyle</div>
-                    <p>Клуб интеллектуальных игр</p>
+    <footer class="bg-secondary py-12">
+        <div class="container max-w-container mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-10">
+                <div>
+                    <div class="text-2xl font-bold text-accent uppercase tracking-wide">MafiaStyle</div>
+                    <p class="mt-4 text-lg">Клуб интеллектуальных игр</p>
                 </div>
-                <div class="footer-links">
-                    <h3>Быстрые ссылки</h3>
-                    <ul>
-                        <li><a href="#about">О клубе</a></li>
-                        <li><a href="#rating">Рейтинг</a></li>
-                        <li><a href="#corporate">Корпоративы</a></li>
-                        <li><a href="#commentary">Комментаторская</a></li>
-                        <li><a href="#location">Контакты</a></li>
+                <div>
+                    <h3 class="text-xl font-bold mb-6 pb-2 relative footer-heading">Быстрые ссылки</h3>
+                    <ul class="space-y-4">
+                        <li><a href="#about" class="text-lg text-white hover:text-accent transition duration-300 hover:pl-1">О клубе</a></li>
+                        <li><a href="#rating" class="text-lg text-white hover:text-accent transition duration-300 hover:pl-1">Рейтинг</a></li>
+                        <li><a href="#corporate" class="text-lg text-white hover:text-accent transition duration-300 hover:pl-1">Корпоративы</a></li>
+                        <li><a href="#commentary" class="text-lg text-white hover:text-accent transition duration-300 hover:pl-1">Комментаторская</a></li>
+                        <li><a href="#location" class="text-lg text-white hover:text-accent transition duration-300 hover:pl-1">Контакты</a></li>
                     </ul>
                 </div>
-                <div class="footer-contact">
-                    <h3>Контакты</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Казань, ул. Пушкина, д. 52</p>
-                    <p><i class="fas fa-phone"></i> +7 (999) 123-45-67</p>
-                    <p><i class="fas fa-envelope"></i> info@mafiastyle.ru</p>
+                <div>
+                    <h3 class="text-xl font-bold mb-6 pb-2 relative footer-heading">Контакты</h3>
+                    <p class="flex items-center mb-4 text-lg"><i class="fas fa-map-marker-alt text-accent mr-3"></i> Казань, ул. Пушкина, д. 52</p>
+                    <p class="flex items-center mb-4 text-lg"><i class="fas fa-phone text-accent mr-3"></i> +7 (999) 123-45-67</p>
+                    <p class="flex items-center text-lg"><i class="fas fa-envelope text-accent mr-3"></i> info@mafiastyle.ru</p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 MafiaStyle. Все права защищены.</p>
+            <div class="text-center pt-6 border-t border-white/10">
+                <p class="text-lg">&copy; 2025 MafiaStyle. Все права защищены.</p>
             </div>
         </div>
     </footer>
@@ -330,6 +390,7 @@
     </div>
 
     <!-- JavaScript-библиотеки -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
