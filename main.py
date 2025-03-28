@@ -17,6 +17,8 @@ class SimpleHandler(BaseHTTPRequestHandler):
             else:
                 file_path = 'static' + self.path
 
+            print(file_path)
+
             # Открываем файл
             with open(file_path, 'rb') as file:
                 content = file.read()
@@ -57,9 +59,9 @@ class SimpleHandler(BaseHTTPRequestHandler):
 PORT = 8000
 
 # Создаем сервер с нашим обработчиком
-httpd = HTTPServer(('', PORT), SimpleHandler)
+httpd = HTTPServer(('0.0.0.0', PORT), SimpleHandler)
 
-print(f"Сервер запущен на http://localhost:{PORT}")
+print(f"Сервер запущен на http://0.0.0.0:{PORT}")
 print("Для остановки нажмите Ctrl+C")
 
 # Запускаем сервер

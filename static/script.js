@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     '.about-content > div',
     '.rating-content > div',
     '.corporate-content > div',
+    '.commentary-content > div',
     '.location-info',
     '.photo-item'
   ];

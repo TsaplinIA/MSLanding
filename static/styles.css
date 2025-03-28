@@ -3,9 +3,11 @@
 :root {
   --bg-dark: #121212;
   --text-light: #f4f4f4;
-  --accent-color: #ff0000;
-  --accent-hover: #ff3333;
-  --secondary-color: #333;
+  --accent-color: #ff0000;         /* Красный - используем только для мелких акцентов */
+  --accent-hover: #ff3333;         /* Светло-красный для ховера акцентов */
+  --secondary-color: #333;         /* Тёмно-серый */
+  --button-color: #555555;         /* Серый цвет для кнопок */
+  --button-hover: #8a5252;         /* Серо-красный для ховера кнопок */
   --nav-height: 80px;
   --transition: all 0.3s ease;
 }
@@ -182,8 +184,8 @@ nav {
 
 .cta-button {
   display: inline-block;
-  background-color: var(--accent-color);
-  color: var(--bg-dark);
+  background-color: var(--button-color);
+  color: var(--text-light);
   padding: 12px 25px;
   text-decoration: none;
   border-radius: 50px;
@@ -191,15 +193,16 @@ nav {
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: var(--transition);
-  border: 2px solid var(--accent-color);
+  border: 2px solid var(--button-color);
   font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 .cta-button:hover {
-  background-color: transparent;
-  color: var(--accent-color);
+  background-color: var(--button-hover);
+  color: var(--text-light);
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
+  box-shadow: 0 10px 20px rgba(255, 0, 0, 0.15);
+  border-color: var(--button-hover);
 }
 
 /* Стили для блока с соцсетями в hero секции */
@@ -225,10 +228,10 @@ nav {
 }
 
 .hero-social-links .social-icon:hover {
-  background-color: var(--accent-color);
-  color: var(--bg-dark);
+  background-color: var(--button-hover);
+  color: var(--text-light);
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
+  box-shadow: 0 10px 20px rgba(255, 0, 0, 0.15);
 }
 
 /* О клубе секция */
@@ -312,7 +315,7 @@ nav {
 }
 
 .rating-table tbody tr:hover {
-  background-color: rgba(255, 0, 0, 0.05);
+  background-color: rgba(85, 85, 85, 0.1);
 }
 
 .rating-table tbody tr:last-child td {
@@ -324,8 +327,8 @@ nav {
   margin-top: 20px;
   padding: 10px 20px;
   background-color: transparent;
-  color: var(--accent-color);
-  border: 2px solid var(--accent-color);
+  color: var(--button-color);
+  border: 2px solid var(--button-color);
   border-radius: 50px;
   text-decoration: none;
   transition: var(--transition);
@@ -334,9 +337,47 @@ nav {
 }
 
 .rating-button:hover {
-  background-color: var(--accent-color);
-  color: var(--bg-dark);
+  background-color: var(--button-hover);
+  color: var(--text-light);
   transform: translateY(-3px);
+  border-color: var(--button-hover);
+}
+
+/* Комментаторская секция */
+.commentary-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.commentary-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.commentary-text p {
+  margin-bottom: 20px;
+}
+
+.commentary-image {
+  flex: 1;
+  min-width: 280px;
+  text-align: center;
+}
+
+.commentary-image img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  height: auto;
+}
+
+.commentary-links {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
 }
 
 /* Корпоративные мероприятия */
@@ -439,8 +480,8 @@ nav {
 }
 
 .social-icon:hover {
-  background-color: var(--accent-color);
-  color: var(--bg-dark);
+  background-color: var(--button-hover);
+  color: var(--text-light);
   transform: translateY(-5px);
 }
 
@@ -618,12 +659,14 @@ footer {
   }
 
   .about-content,
-  .corporate-content {
+  .corporate-content,
+  .commentary-content {
     flex-direction: column;
   }
 
   .about-image,
-  .corporate-image {
+  .corporate-image,
+  .commentary-image {
     order: -1;
     margin-bottom: 20px;
   }
