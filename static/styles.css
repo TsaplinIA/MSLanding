@@ -1,3 +1,6 @@
+/* ============================================
+   ОСНОВНЫЕ НАСТРОЙКИ И ПЕРЕМЕННЫЕ
+   ============================================ */
 * {margin: 0; padding: 0; box-sizing: border-box;}
 
 :root {
@@ -25,7 +28,9 @@ body {
   overflow-x: hidden;
 }
 
-/* Контейнеры и общие стили */
+/* ============================================
+   ОБЩИЕ СТИЛИ КОНТЕЙНЕРОВ И СЕКЦИЙ
+   ============================================ */
 .container {
   width: 90%;
   max-width: 1200px;
@@ -42,7 +47,9 @@ body {
   justify-content: center;
 }
 
-/* Типографика */
+/* ============================================
+   ТИПОГРАФИКА
+   ============================================ */
 h1, h2, h3 {
   color: var(--text-light);
   margin-bottom: 20px;
@@ -78,7 +85,9 @@ p {
   font-size: clamp(1rem, 2vw, 1.1rem);
 }
 
-/* Header и навигация */
+/* ============================================
+   HEADER И НАВИГАЦИЯ
+   ============================================ */
 header {
   background-color: rgba(0,0,0,0.9);
   position: fixed;
@@ -164,7 +173,9 @@ nav {
   transition: var(--transition);
 }
 
-/* Hero Section */
+/* ============================================
+   HERO СЕКЦИЯ
+   ============================================ */
 #hero {
   text-align: center;
   background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1920x1080');
@@ -234,7 +245,9 @@ nav {
   box-shadow: 0 10px 20px rgba(255, 0, 0, 0.15);
 }
 
-/* О клубе секция */
+/* ============================================
+   О КЛУБЕ СЕКЦИЯ
+   ============================================ */
 .about-content {
   display: flex;
   justify-content: space-between;
@@ -265,7 +278,9 @@ nav {
   height: auto;
 }
 
-/* Стили для секции рейтинга */
+/* ============================================
+   РЕЙТИНГ СЕКЦИЯ
+   ============================================ */
 .rating-content {
   display: flex;
   flex-direction: column;
@@ -343,7 +358,9 @@ nav {
   border-color: var(--button-hover);
 }
 
-/* Комментаторская секция */
+/* ============================================
+   КОММЕНТАТОРСКАЯ СЕКЦИЯ
+   ============================================ */
 .commentary-content {
   display: flex;
   justify-content: space-between;
@@ -410,7 +427,9 @@ nav {
   height: auto;
 }
 
-/* Корпоративные мероприятия */
+/* ============================================
+   КОРПОРАТИВНЫЕ МЕРОПРИЯТИЯ
+   ============================================ */
 .corporate-content {
   display: flex;
   justify-content: space-between;
@@ -455,7 +474,9 @@ nav {
   margin-bottom: 10px;
 }
 
-/* НАЧАЛО ОБНОВЛЕННЫХ СТИЛЕЙ ДЛЯ БЛОКА ЛОКАЦИИ */
+/* ============================================
+   ЛОКАЦИЯ СЕКЦИЯ - КОНТАКТЫ И КАРТА
+   ============================================ */
 .location-content {
   display: flex;
   flex-direction: column;
@@ -520,7 +541,7 @@ nav {
   margin: 0;
 }
 
-/* Новая структура для галереи и карты */
+/* Галерея и карта */
 .location-gallery-map {
   display: flex;
   flex-direction: row;
@@ -529,17 +550,41 @@ nav {
   margin-top: 30px;
 }
 
-/* Слайдер и карта */
+/* Слайдер и карта с фиксированной высотой */
 .location-slider,
 .location-map {
   flex: 1;
   min-width: 300px;
-  height: 400px; /* Фиксированная высота для обоих элементов */
+  height: 400px !important; /* Важно! принудительно устанавливаем высоту */
+  position: relative; /* Для абсолютного позиционирования внутренних элементов */
 }
 
+/* Контейнер с фиксированной высотой для карты */
+.map-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Стили для iframe карты */
+.map-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Swiper контейнер тоже с фиксированной высотой */
 .swiper {
   width: 100%;
-  height: 100%; /* Занимает всю высоту родителя */
+  height: 100%;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -561,12 +606,22 @@ nav {
   cursor: pointer; /* Указатель для открытия увеличенного изображения */
 }
 
-/* Яндекс Карты */
-.map-iframe {
+.swiper {
   width: 100%;
-  height: 100%;
+  height: 100% !important; /* Принудительно задаем высоту */
   border-radius: 10px;
+  overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Отключаем autoHeight у Swiper */
+.swiper-autoheight {
+  height: 100% !important; /* Переопределяем autoHeight */
+}
+
+/* Дополнительно фиксируем wrapper */
+.swiper-wrapper {
+  height: 100% !important;
 }
 
 /* Стили для кнопок навигации Swiper */
@@ -606,9 +661,10 @@ nav {
 .swiper-pagination-bullet-active {
   background-color: var(--accent-color) !important; /* Красный для активной точки */
 }
-/* КОНЕЦ ОБНОВЛЕННЫХ СТИЛЕЙ ДЛЯ БЛОКА ЛОКАЦИИ */
 
-/* Footer */
+/* ============================================
+   FOOTER
+   ============================================ */
 footer {
   background-color: var(--secondary-color);
   padding: 50px 0 20px;
@@ -680,7 +736,9 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Анимации */
+/* ============================================
+   АНИМАЦИИ
+   ============================================ */
 .animate {
   opacity: 0;
   transform: translateY(30px);
@@ -692,7 +750,10 @@ footer {
   transform: translateY(0);
 }
 
-/* Адаптивность */
+/* ============================================
+   АДАПТИВНОСТЬ (МЕДИА-ЗАПРОСЫ)
+   ============================================ */
+/* Планшеты */
 @media (max-width: 992px) {
   .section {
     padding: 70px 0;
@@ -708,9 +769,11 @@ footer {
 
   .location-slider, .location-map {
     width: 100%;
+    height: 400px !important;
   }
 }
 
+/* Мобильные устройства */
 @media (max-width: 768px) {
   :root {
     --nav-height: 70px;
@@ -783,7 +846,7 @@ footer {
 
   .location-slider,
   .location-map {
-    height: 350px;
+    height: 350px !important;
   }
 
   .location-info {
@@ -795,6 +858,7 @@ footer {
   }
 }
 
+/* Маленькие мобильные устройства */
 @media (max-width: 480px) {
   .section {
     padding: 50px 0;
@@ -826,7 +890,7 @@ footer {
 
   .location-slider,
   .location-map {
-    height: 250px;
+    height: 300px !important;
   }
 
   .swiper-button-next,
@@ -841,6 +905,9 @@ footer {
   }
 }
 
+/* ============================================
+   СПЕЦИАЛЬНЫЕ ФИКСЫ
+   ============================================ */
 /* Fix для Safari и iOS */
 @supports (-webkit-touch-callout: none) {
   #hero {

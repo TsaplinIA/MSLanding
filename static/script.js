@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
       },
 
       // Автоматическое определение устройства
-      autoHeight: true,
+      autoHeight: false,
 
       // Улучшенная производительность на мобильных
       touchReleaseOnEdges: true,
