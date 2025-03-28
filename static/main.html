@@ -19,7 +19,7 @@
             <ul class="nav-menu">
                 <li><a href="#hero" class="active">Главная</a></li>
                 <li><a href="#about">О клубе</a></li>
-                <li><a href="#games">Игры</a></li>
+                <li><a href="#rating">Рейтинг</a></li>
                 <li><a href="#corporate">Корпоративы</a></li>
                 <li><a href="#location">Контакты</a></li>
             </ul>
@@ -31,7 +31,13 @@
             <div class="container">
                 <h1>MafiaStyle</h1>
                 <p class="subtitle">Клуб интеллектуальных игр</p>
-                <a href="#games" class="cta-button">Записаться на игру</a>
+                <a href="#rating" class="cta-button">Записаться на игру</a>
+
+                <div class="hero-social-links">
+                    <a href="#" class="social-icon"><i class="fab fa-vk"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
         </section>
 
@@ -51,27 +57,64 @@
             </div>
         </section>
 
-        <section id="games" class="section">
+        <section id="rating" class="section">
             <div class="container">
-                <h2>Фановые игры</h2>
-                <div class="games-grid">
-                    <div class="game-card">
-                        <div class="game-icon"><i class="fas fa-user-secret"></i></div>
-                        <h3>Мафия</h3>
-                        <p>Классическая психологическая игра на логику и интуицию. Раскройте мафию или обманите город!</p>
-                        <a href="#" class="game-button">Подробнее</a>
+                <h2>Рейтинг игроков</h2>
+                <div class="rating-content">
+                    <div class="rating-info">
+                        <p>Наш клуб ведет рейтинг всех игроков. Участвуйте в играх, получайте баллы и поднимайтесь в таблице лидеров!</p>
+                        <p>Каждый месяц топ-10 игроков получают призы и специальные привилегии на следующие игры.</p>
                     </div>
-                    <div class="game-card">
-                        <div class="game-icon"><i class="fas fa-dragon"></i></div>
-                        <h3>Мир Волков</h3>
-                        <p>Детективная игра с элементами фэнтези. Спасите деревню от оборотней!</p>
-                        <a href="#" class="game-button">Подробнее</a>
-                    </div>
-                    <div class="game-card">
-                        <div class="game-icon"><i class="fas fa-hat-wizard"></i></div>
-                        <h3>Находка для шпиона</h3>
-                        <p>Веселая игра на дедукцию. Вычислите шпиона или не выдайте себя!</p>
-                        <a href="#" class="game-button">Подробнее</a>
+                    <div class="rating-table-container">
+                        <table class="rating-table">
+                            <thead>
+                                <tr>
+                                    <th>Место</th>
+                                    <th>Игрок</th>
+                                    <th>Игр</th>
+                                    <th>Побед</th>
+                                    <th>Рейтинг</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Алексей К.</td>
+                                    <td>42</td>
+                                    <td>18</td>
+                                    <td>2845</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Марина С.</td>
+                                    <td>38</td>
+                                    <td>15</td>
+                                    <td>2792</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Дмитрий В.</td>
+                                    <td>45</td>
+                                    <td>14</td>
+                                    <td>2731</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Ольга М.</td>
+                                    <td>36</td>
+                                    <td>12</td>
+                                    <td>2695</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Игорь П.</td>
+                                    <td>39</td>
+                                    <td>13</td>
+                                    <td>2680</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <a href="#" class="rating-button">Полный рейтинг</a>
                     </div>
                 </div>
             </div>
@@ -124,10 +167,22 @@
                             <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
-                    <div class="map-container">
-                        <!-- Здесь можно добавить карту, например Яндекс.Карты или Google Maps -->
-                        <div class="placeholder-map">
-                            <img src="https://via.placeholder.com/600x300" alt="Карта">
+
+                    <!-- Фотографии локации -->
+                    <div class="location-photos">
+                        <div class="photos-grid">
+                            <div class="photo-item">
+                                <img src="https://via.placeholder.com/400x300?text=Зал+1" alt="Зал 1">
+                            </div>
+                            <div class="photo-item">
+                                <img src="https://via.placeholder.com/400x300?text=Зал+2" alt="Зал 2">
+                            </div>
+                            <div class="photo-item">
+                                <img src="https://via.placeholder.com/400x300?text=Ресепшн" alt="Ресепшн">
+                            </div>
+                            <div class="photo-item">
+                                <img src="https://via.placeholder.com/400x300?text=Кафе" alt="Кафе">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -146,7 +201,7 @@
                     <h3>Быстрые ссылки</h3>
                     <ul>
                         <li><a href="#about">О клубе</a></li>
-                        <li><a href="#games">Игры</a></li>
+                        <li><a href="#rating">Рейтинг</a></li>
                         <li><a href="#corporate">Корпоративы</a></li>
                         <li><a href="#location">Контакты</a></li>
                     </ul>
