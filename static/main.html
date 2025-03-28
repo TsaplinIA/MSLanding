@@ -112,78 +112,70 @@
         <section id="rating" class="py-20">
             <div class="container max-w-container mx-auto px-6 lg:px-8">
                 <h2 data-aos="fade-up" class="text-3xl md:text-4xl font-bold text-center mb-16 relative after-heading">Рейтинг игроков</h2>
-                <div class="flex flex-col gap-8">
-                    <div data-aos="fade-up" class="text-center max-w-3xl mx-auto mb-10">
+                <div class="flex flex-wrap justify-between items-center gap-10 lg:gap-16">
+                    <!-- Левая колонка с топ-3 игроками -->
+                    <div data-aos="fade-right" class="flex-1 min-w-[280px]">
+                        <div class="bg-white/5 rounded-lg p-6 shadow-lg">
+                            <!-- Первое место -->
+                            <div class="mb-6 p-4 bg-white/10 rounded-lg flex items-center transition-all duration-300 hover:bg-white/15">
+                                <div class="mr-4 flex-shrink-0 w-12 h-12 bg-accent rounded-full flex items-center justify-center text-xl font-bold">1</div>
+                                <div class="flex-grow">
+                                    <div class="font-bold text-xl">Алексей К.</div>
+                                </div>
+                                <div class="text-2xl font-bold">15.5</div>
+                            </div>
+
+                            <!-- Второе место -->
+                            <div class="mb-6 p-4 bg-white/10 rounded-lg flex items-center transition-all duration-300 hover:bg-white/15">
+                                <div class="mr-4 flex-shrink-0 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-xl font-bold">2</div>
+                                <div class="flex-grow">
+                                    <div class="font-bold text-xl">Марина С.</div>
+                                </div>
+                                <div class="text-2xl font-bold">14.2</div>
+                            </div>
+
+                            <!-- Третье место -->
+                            <div class="p-4 bg-white/10 rounded-lg flex items-center transition-all duration-300 hover:bg-white/15">
+                                <div class="mr-4 flex-shrink-0 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-xl font-bold">3</div>
+                                <div class="flex-grow">
+                                    <div class="font-bold text-xl">Дмитрий В.</div>
+                                </div>
+                                <div class="text-2xl font-bold">13.7</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Правая колонка с текстом -->
+                    <div data-aos="fade-left" data-aos-delay="200" class="flex-1 min-w-[300px] flex flex-col justify-center">
                         <p class="mb-6 text-lg leading-relaxed">Наш клуб ведет рейтинг всех игроков. Участвуйте в играх, получайте баллы и поднимайтесь в таблице лидеров!</p>
                         <p class="text-lg leading-relaxed">Каждый месяц топ-10 игроков получают призы и специальные привилегии на следующие игры.</p>
-                    </div>
-                    <div data-aos="fade-up" data-aos-delay="200" class="overflow-x-auto bg-white/5 rounded-lg p-5 shadow-lg">
-                        <table class="w-full border-collapse text-left">
-                            <thead>
-                                <tr>
-                                    <th class="py-4 px-3 border-b border-white/10 text-sm uppercase font-bold text-accent tracking-wider">Место</th>
-                                    <th class="py-4 px-3 border-b border-white/10 text-sm uppercase font-bold text-accent tracking-wider">Игрок</th>
-                                    <th class="py-4 px-3 border-b border-white/10 text-sm uppercase font-bold text-accent tracking-wider">Игр</th>
-                                    <th class="py-4 px-3 border-b border-white/10 text-sm uppercase font-bold text-accent tracking-wider">Побед</th>
-                                    <th class="py-4 px-3 border-b border-white/10 text-sm uppercase font-bold text-accent tracking-wider">Рейтинг</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="hover:bg-white/10 transition-colors duration-200">
-                                    <td class="py-4 px-3 border-b border-white/10">1</td>
-                                    <td class="py-4 px-3 border-b border-white/10">Алексей К.</td>
-                                    <td class="py-4 px-3 border-b border-white/10">42</td>
-                                    <td class="py-4 px-3 border-b border-white/10">18</td>
-                                    <td class="py-4 px-3 border-b border-white/10">2845</td>
-                                </tr>
-                                <tr class="hover:bg-white/10 transition-colors duration-200">
-                                    <td class="py-4 px-3 border-b border-white/10">2</td>
-                                    <td class="py-4 px-3 border-b border-white/10">Марина С.</td>
-                                    <td class="py-4 px-3 border-b border-white/10">38</td>
-                                    <td class="py-4 px-3 border-b border-white/10">15</td>
-                                    <td class="py-4 px-3 border-b border-white/10">2792</td>
-                                </tr>
-                                <tr class="hover:bg-white/10 transition-colors duration-200">
-                                    <td class="py-4 px-3 border-b border-white/10">3</td>
-                                    <td class="py-4 px-3 border-b border-white/10">Дмитрий В.</td>
-                                    <td class="py-4 px-3 border-b border-white/10">45</td>
-                                    <td class="py-4 px-3 border-b border-white/10">14</td>
-                                    <td class="py-4 px-3 border-b border-white/10">2731</td>
-                                </tr>
-                                <tr class="hover:bg-white/10 transition-colors duration-200">
-                                    <td class="py-4 px-3 border-b border-white/10">4</td>
-                                    <td class="py-4 px-3 border-b border-white/10">Ольга М.</td>
-                                    <td class="py-4 px-3 border-b border-white/10">36</td>
-                                    <td class="py-4 px-3 border-b border-white/10">12</td>
-                                    <td class="py-4 px-3 border-b border-white/10">2695</td>
-                                </tr>
-                                <tr class="hover:bg-white/10 transition-colors duration-200">
-                                    <td class="py-4 px-3 border-b border-white/10">5</td>
-                                    <td class="py-4 px-3 border-b border-white/10">Игорь П.</td>
-                                    <td class="py-4 px-3 border-b border-white/10">39</td>
-                                    <td class="py-4 px-3 border-b border-white/10">13</td>
-                                    <td class="py-4 px-3 border-b border-white/10">2680</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="text-center mt-6">
-                            <a href="#" class="inline-block px-5 py-2 border-2 border-button-color text-button-color rounded-full font-bold transition duration-300 hover:bg-button-hover hover:text-white hover:border-button-hover hover:translate-y-[-3px]">Полный рейтинг</a>
+                        <div class="mt-8">
+                            <a href="#" class="inline-block px-5 py-2 border-2 border-button-color text-white bg-button-color rounded-full font-bold transition duration-300 hover:bg-button-hover hover:border-button-hover hover:translate-y-[-3px] hover:shadow-lg">Полный рейтинг</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+
         <!-- Корпоративные мероприятия -->
         <section id="corporate" class="py-20">
             <div class="container max-w-container mx-auto px-6 lg:px-8">
                 <h2 data-aos="fade-up" class="text-3xl md:text-4xl font-bold text-center mb-16 relative after-heading">Корпоративные мероприятия</h2>
-                <div class="flex flex-wrap justify-between items-center gap-10 lg:gap-16">
-                    <div data-aos="fade-right" class="flex-1 min-w-[280px] order-2 md:order-1 text-center">
-                        <img src="/images/allinone.jpg" alt="Корпоративное мероприятие" class="max-w-full h-full object-cover rounded-lg shadow-xl">
+
+                <!-- Изменяем подход к контейнеру - убираем выравнивание по центру -->
+                <div class="flex flex-wrap justify-between gap-10 lg:gap-16">
+                    <!-- Левая колонка с изображением - без выравнивания по центру -->
+                    <div data-aos="fade-right" class="flex-1 min-w-[280px] order-2 md:order-1">
+                        <img src="/images/allinone.jpg" alt="Корпоративное мероприятие" class="max-w-full h-auto object-cover rounded-lg shadow-xl">
                     </div>
-                    <div data-aos="fade-left" data-aos-delay="200" class="flex-1 min-w-[300px] order-1 md:order-2 flex flex-col justify-center">
+
+                    <!-- Правая колонка с текстом и кнопкой - со значительным отступом сверху -->
+                    <div data-aos="fade-left" data-aos-delay="200" class="flex-1 min-w-[300px] order-1 md:order-2 flex flex-col">
+                        <!-- Основной текст -->
                         <p class="mb-6 text-lg leading-relaxed">Мы организуем интеллектуальные игры для компаний любого размера. Это отличный способ для командообразования и неформального общения между сотрудниками.</p>
+
+                        <!-- Что мы предлагаем -->
                         <h3 class="text-2xl font-bold mb-6 mt-4">Что мы предлагаем:</h3>
                         <ul class="mb-8 list-inside space-y-4">
                             <li class="flex items-start">
@@ -203,6 +195,8 @@
                                 <span class="text-lg">Фотоотчет мероприятия</span>
                             </li>
                         </ul>
+
+                        <!-- Кнопка -->
                         <a href="https://t.me/ElfimovEA?text=Здравствуйте%21%20Хотелось%20бы%20обсудить%20проведение%20корпоративного%20мероприятия.%20Подскажите%2C%20когда%20удобно%20поговорить%3F" target="_blank" class="cta-button inline-block bg-button-color text-white py-3 px-6 rounded-full font-bold uppercase tracking-wide border-2 border-button-color transition duration-300 hover:bg-button-hover hover:border-button-hover hover:translate-y-[-3px] hover:shadow-lg max-w-xs">Заказать мероприятие</a>
                     </div>
                 </div>
@@ -214,10 +208,15 @@
             <div class="container max-w-container mx-auto px-6 lg:px-8">
                 <h2 data-aos="fade-up" class="text-3xl md:text-4xl font-bold text-center mb-16 relative after-heading">Комментаторская</h2>
                 <div class="flex flex-wrap justify-between items-center gap-10 lg:gap-16">
-                    <div data-aos="fade-right" class="flex-1 min-w-[300px] flex flex-col justify-center">
-                        <p class="mb-6 text-lg leading-relaxed">Наша комментаторская команда освещает все турниры по мафии в Поволжье. Профессиональные комментаторы делают игры еще более увлекательными и доступными для зрителей.</p>
-                        <p class="mb-8 text-lg leading-relaxed">Мы транслируем все значимые турниры на наших каналах, сопровождая их экспертными комментариями и аналитикой. Наша команда комментаторов состоит из опытных игроков, которые помогут вам лучше понять стратегии и тактики игры.</p>
+                    <!-- Левая колонка с текстом и кнопками -->
+                    <div data-aos="fade-right" class="flex-1 min-w-[300px] flex flex-col">
+                        <!-- Текстовый блок с отступом сверху для выравнивания по центру -->
+                        <div class="pt-8 md:pt-10">
+                            <p class="mb-6 text-lg leading-relaxed">Наша комментаторская команда освещает все турниры по мафии в Поволжье. Профессиональные комментаторы делают игры еще более увлекательными и доступными для зрителей.</p>
+                            <p class="text-lg leading-relaxed">Мы транслируем все значимые турниры на наших каналах, сопровождая их экспертными комментариями и аналитикой. Наша команда комментаторов состоит из опытных игроков, которые помогут вам лучше понять стратегии и тактики игры.</p>
+                        </div>
 
+                        <!-- Кнопки внизу, отделены от основного текста -->
                         <div class="flex flex-col gap-6 mt-8">
                             <div data-aos="fade-up" data-aos-delay="100" class="flex items-center">
                                 <a href="https://t.me/mafstylecom" target="_blank" class="flex items-center justify-center w-12 h-12 rounded-full bg-white/10 text-white text-xl mr-5 transition duration-300 hover:bg-button-hover hover:scale-110">
@@ -233,6 +232,8 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Правая колонка с изображением -->
                     <div data-aos="fade-left" data-aos-delay="300" class="flex-1 min-w-[280px] text-center">
                         <img src="/images/allinone.jpg" alt="Комментаторская MafiaStyle" class="max-w-full rounded-lg shadow-xl h-full object-cover">
                     </div>
