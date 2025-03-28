@@ -112,6 +112,16 @@
         <section id="rating" class="py-20">
             <div class="container max-w-container mx-auto px-6 lg:px-8">
                 <h2 data-aos="fade-up" class="text-3xl md:text-4xl font-bold text-center mb-16 relative after-heading">Рейтинг игроков</h2>
+                <!-- HTML-шаблон для рейтинга игроков -->
+                <template id="player-template">
+                  <div class="mb-6 p-4 bg-white/10 rounded-lg flex items-center transition-all duration-300 hover:bg-white/15">
+                    <div class="player-position mr-4 flex-shrink-0 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-xl font-bold">1</div>
+                    <div class="flex-grow">
+                      <div class="player-name font-bold text-xl">Имя игрока</div>
+                    </div>
+                    <div class="player-score text-2xl font-bold">0.0</div>
+                  </div>
+                </template>
                 <div class="flex flex-wrap justify-between items-center gap-10 lg:gap-16">
                     <!-- Левая колонка с топ-3 игроками -->
                     <div data-aos="fade-right" class="flex-1 min-w-[280px]">

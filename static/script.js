@@ -2,6 +2,69 @@
  * Main JavaScript file for the MafiaStyle website
  * Structured with section-specific functionality
  */
+/**
+ * Загрузка рейтинга игроков с сервера
+ */
+function loadTopPlayers() {
+  // Контейнер для топ-3 игроков
+  const ratingContainer = document.querySelector('#rating .bg-white\\/5');
+
+  // Сохраняем исходное содержимое для возможного восстановления в случае ошибки
+  const originalContent = ratingContainer.innerHTML;
+
+  // URL до API с рейтингом (замените на свой)
+  const apiUrl = 'https://your-service-domain.com/api/top-players';
+
+  fetch(apiUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Очистить текущий рейтинг
+      ratingContainer.innerHTML = '';
+
+      // Получаем шаблон
+      const template = document.getElementById('player-template');
+
+      // Проверяем наличие данных
+      if (!data || data.length === 0) {
+        throw new Error('No data received');
+      }
+
+      // Добавляем каждого игрока
+      data.forEach((player, index) => {
+        const position = index + 1;
+        const clone = template.content.cloneNode(true);
+
+        // Установка данных
+        clone.querySelector('.player-position').textContent = position;
+        clone.querySelector('.player-name').textContent = player.name;
+        clone.querySelector('.player-score').textContent = player.score;
+
+        // Установка цвета для первого места
+        if (position === 1) {
+          clone.querySelector('.player-position').classList.remove('bg-white/20');
+          clone.querySelector('.player-position').classList.add('bg-accent');
+        }
+
+        // Если это последний элемент, убираем нижний отступ
+        if (position === data.length && position !== 3) {
+          clone.querySelector('div').classList.remove('mb-6');
+        }
+
+        ratingContainer.appendChild(clone);
+      });
+    })
+    .catch(error => {
+      console.error('Ошибка загрузки рейтинга:', error);
+      // В случае ошибки восстанавливаем исходное содержимое
+      ratingContainer.innerHTML = originalContent;
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   // ===== ИНИЦИАЛИЗАЦИЯ БИБЛИОТЕК =====
   // Инициализация AOS для анимаций при скролле
@@ -12,6 +75,9 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // ===== ИНИЦИАЛИЗАЦИЯ SWIPER И PHOTOSWIPE =====
   setupGallery();
+
+  // ===== ЗАГРУЗКА РЕЙТИНГА ИГРОКОВ =====
+  loadTopPlayers();
 });
 
 /**
