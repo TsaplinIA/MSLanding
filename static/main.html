@@ -299,24 +299,40 @@
 
                 <!-- Галерея и карта -->
                 <div class="flex flex-wrap gap-8">
-                    <!-- Swiper слайдер -->
+                    <!-- Swiper слайдер без прелоадеров -->
                     <div data-aos="fade-right" class="flex-1 min-w-[300px] h-[400px]">
                         <div class="swiper mySwiper h-full rounded-lg overflow-hidden shadow-xl">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <img src="/images/inter1.jpg" alt="Зал 1" class="w-full h-full object-cover">
+                                    <!-- Просто используем src для маленького изображения и data-full-src для большого -->
+                                    <img src="/images/inter1.jpg"
+                                         data-full-src="/images/inter1.jpg"
+                                         class="w-full h-full object-cover"
+                                         alt="Зал 1">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="/images/inter2.jpg" alt="Зал 2" class="w-full h-full object-cover">
+                                    <img src="/images/inter2.jpg"
+                                         data-full-src="/images/inter2.jpg"
+                                         class="w-full h-full object-cover"
+                                         alt="Зал 2">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="/images/inter3.jpg" alt="Ресепшн" class="w-full h-full object-cover">
+                                    <img src="/images/inter3.jpg"
+                                         data-full-src="/images/inter3.jpg"
+                                         class="w-full h-full object-cover"
+                                         alt="Ресепшн">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="/images/inter4.jpg" alt="Кафе" class="w-full h-full object-cover">
+                                    <img src="/images/inter4.jpg"
+                                         data-full-src="/images/inter4.jpg"
+                                         class="w-full h-full object-cover"
+                                         alt="Кафе">
                                 </div>
                                 <div class="swiper-slide">
-                                    <img src="/images/inter5.jpg" alt="Кафе2" class="w-full h-full object-cover">
+                                    <img src="/images/inter5.jpg"
+                                         data-full-src="/images/inter5.jpg"
+                                         class="w-full h-full object-cover"
+                                         alt="Кафе2">
                                 </div>
                             </div>
                             <div class="swiper-pagination"></div>
@@ -324,6 +340,31 @@
                             <div class="swiper-button-prev"></div>
                         </div>
                     </div>
+                    <!-- Swiper слайдер -->
+<!--                    <div data-aos="fade-right" class="flex-1 min-w-[300px] h-[400px]">-->
+<!--                        <div class="swiper mySwiper h-full rounded-lg overflow-hidden shadow-xl">-->
+<!--                            <div class="swiper-wrapper">-->
+<!--                                <div class="swiper-slide">-->
+<!--                                    <img src="/images/inter1.jpg" alt="Зал 1" class="w-full h-full object-cover">-->
+<!--                                </div>-->
+<!--                                <div class="swiper-slide">-->
+<!--                                    <img src="/images/inter2.jpg" alt="Зал 2" class="w-full h-full object-cover">-->
+<!--                                </div>-->
+<!--                                <div class="swiper-slide">-->
+<!--                                    <img src="/images/inter3.jpg" alt="Ресепшн" class="w-full h-full object-cover">-->
+<!--                                </div>-->
+<!--                                <div class="swiper-slide">-->
+<!--                                    <img src="/images/inter4.jpg" alt="Кафе" class="w-full h-full object-cover">-->
+<!--                                </div>-->
+<!--                                <div class="swiper-slide">-->
+<!--                                    <img src="/images/inter5.jpg" alt="Кафе2" class="w-full h-full object-cover">-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="swiper-pagination"></div>-->
+<!--                            <div class="swiper-button-next"></div>-->
+<!--                            <div class="swiper-button-prev"></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
 
                     <!-- Яндекс Карта -->
                     <div data-aos="fade-left" class="flex-1 min-w-[300px] h-[400px]">

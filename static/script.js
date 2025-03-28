@@ -208,14 +208,17 @@ function setupNavigation() {
 
 /**
  * Настройка галереи изображений (Swiper и PhotoSwipe)
+ * Упрощенная версия без ленивой загрузки в Swiper
  */
 function setupGallery() {
-  // Инициализация слайдера Swiper
+  // Инициализация слайдера Swiper без ленивой загрузки
   const swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
     spaceBetween: 30,
     loop: true,
     grabCursor: true,
+    // Отключаем ленивую загрузку, т.к. используем миниатюры напрямую
+    // lazy: true,
     // Кнопки навигации
     navigation: {
       nextEl: ".swiper-button-next",
@@ -225,102 +228,62 @@ function setupGallery() {
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
-    },
-    // Автоматическая адаптация высоты
-    autoHeight: false,
+    }
   });
-  
+
   // Инициализация PhotoSwipe при клике на слайд
-  initPhotoSwipeFromDOM('.swiper-wrapper');
-  
-  /**
-   * Инициализация PhotoSwipe для просмотра изображений в модальном окне
-   * @param {string} gallerySelector - CSS-селектор контейнера галереи
-   */
-  function initPhotoSwipeFromDOM(gallerySelector) {
-    // Находим все слайды с изображениями
-    const slides = document.querySelectorAll(`${gallerySelector} .swiper-slide`);
-    
-    // Добавляем обработчики для каждого слайда
-    slides.forEach((slide, index) => {
-      const img = slide.querySelector('img');
-      
-      // Обработчик клика на изображение
-      img.addEventListener('click', function(e) {
-        e.preventDefault();
-        openPhotoSwipe(index);
-      });
+  const gallerySelector = '.swiper-wrapper';
+  const slides = document.querySelectorAll(`${gallerySelector} .swiper-slide`);
+
+  slides.forEach((slide, index) => {
+    const img = slide.querySelector('img');
+
+    img.addEventListener('click', function(e) {
+      e.preventDefault();
+      openPhotoSwipe(index);
     });
-    
-    /**
-     * Подготовка массива элементов для PhotoSwipe
-     * @returns {Array} - Массив объектов для PhotoSwipe
-     */
-    function getItems() {
-      const items = [];
-      
-      slides.forEach(slide => {
-        const img = slide.querySelector('img');
-        
-        // Создаем объект для PhotoSwipe
-        const item = {
-          src: img.src,
-          w: 0, // Будет установлено после загрузки
-          h: 0,
-          title: img.alt || 'Изображение'
-        };
-        
-        items.push(item);
-      });
-      
-      return items;
-    }
-    
-    /**
-     * Открытие галереи PhotoSwipe
-     * @param {number} index - Индекс изображения, с которого нужно начать
-     */
-    function openPhotoSwipe(index) {
-      const pswpElement = document.querySelector('.pswp');
-      const items = getItems();
-      
-      // Опции для PhotoSwipe
-      const options = {
-        index: index,
-        history: false,
-        focus: false,
-        showAnimationDuration: 300,
-        hideAnimationDuration: 300,
-        bgOpacity: 0.9,
-        tapToClose: true,
-        tapToToggleControls: true,
-        fullscreenEl: true,
-        shareEl: false,
-        getThumbBoundsFn: function(index) {
-          const thumbnail = slides[index].querySelector('img');
-          const pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
-          const rect = thumbnail.getBoundingClientRect();
-          return {x: rect.left, y: rect.top + pageYScroll, w: rect.width};
-        }
+  });
+
+  function openPhotoSwipe(index) {
+    const pswpElement = document.querySelector('.pswp');
+    const items = slides.map(slide => {
+      const img = slide.querySelector('img');
+
+      return {
+        src: img.dataset.fullSrc || img.src,
+        w: 1200, // примерные размеры, будут уточнены при загрузке
+        h: 800,
+        msrc: img.src // миниатюра для плавного перехода
       };
-      
-      // Инициализация PhotoSwipe
-      const gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
-      
-      // Обработчик события загрузки каждого изображения
-      gallery.listen('gettingData', function(index, item) {
-        if (item.w < 1 || item.h < 1) {
-          const img = new Image();
-          img.src = item.src;
-          img.onload = function() {
-            item.w = this.width;
-            item.h = this.height;
-            gallery.updateSize(true);
-          };
-        }
-      });
-      
-      gallery.init();
-    }
+    });
+
+    const options = {
+      index,
+      history: false,
+      bgOpacity: 0.9,
+      showAnimationDuration: 300,
+      hideAnimationDuration: 300,
+      getThumbBoundsFn: function(index) {
+        const thumbnail = slides[index].querySelector('img');
+        const pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
+        const rect = thumbnail.getBoundingClientRect();
+        return {x: rect.left, y: rect.top + pageYScroll, w: rect.width};
+      }
+    };
+
+    const gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+
+    gallery.listen('gettingData', function(index, item) {
+      // Загружаем изображение для определения его реальных размеров
+      const img = new Image();
+      img.onload = function() {
+        item.w = this.width;
+        item.h = this.height;
+        gallery.updateSize(true);
+      };
+      img.src = item.src;
+    });
+
+    gallery.init();
   }
 }
