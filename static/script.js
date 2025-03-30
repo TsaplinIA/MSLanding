@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // ===== МЕНЮ И НАВИГАЦИЯ =====
   setupNavigation();
   
-  // ===== ИНИЦИАЛИЗАЦИЯ SWIPER И PHOTOSWIPE =====
+  // ===== ИНИЦИАЛИЗАЦИЯ SWIPER =====
   setupGallery();
 
   // ===== ЗАГРУЗКА РЕЙТИНГА ИГРОКОВ =====
@@ -109,7 +109,7 @@ function setupNavigation() {
     navMenu.classList.toggle('active');
     menuToggle.classList.toggle('active');
     body.classList.toggle('menu-open');
-    
+
     if (navMenu.classList.contains('active')) {
       navMenu.style.right = '0';
       body.style.overflow = 'hidden';
@@ -121,7 +121,7 @@ function setupNavigation() {
 
   // Обработчики событий для меню
   menuToggle.addEventListener('click', toggleMenu);
-  
+
   // Закрытие меню при клике на ссылку
   navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
@@ -129,28 +129,28 @@ function setupNavigation() {
       const targetId = this.getAttribute('href');
       if (targetId.startsWith('#') && targetId !== '#') {
         e.preventDefault();
-        
+
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
           // Закрываем меню если оно открыто
           if (navMenu.classList.contains('active')) {
             toggleMenu();
           }
-          
+
           // Прокручиваем к секции плавно
           scrollToSection(targetElement);
         }
       }
     });
   });
-  
+
   // Закрытие меню при нажатии Escape
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && navMenu.classList.contains('active')) {
       toggleMenu();
     }
   });
-  
+
   // Изменение стиля хедера при прокрутке
   window.addEventListener('scroll', function() {
     if (window.scrollY > 50) {
@@ -207,18 +207,15 @@ function setupNavigation() {
 }
 
 /**
- * Настройка галереи изображений (Swiper и PhotoSwipe)
- * Упрощенная версия без ленивой загрузки в Swiper
+ * Настройка слайдера Swiper (без PhotoSwipe)
  */
 function setupGallery() {
-  // Инициализация слайдера Swiper без ленивой загрузки
+  // Инициализация слайдера Swiper
   const swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
     spaceBetween: 30,
     loop: true,
     grabCursor: true,
-    // Отключаем ленивую загрузку, т.к. используем миниатюры напрямую
-    // lazy: true,
     // Кнопки навигации
     navigation: {
       nextEl: ".swiper-button-next",
@@ -230,60 +227,4 @@ function setupGallery() {
       clickable: true,
     }
   });
-
-  // Инициализация PhotoSwipe при клике на слайд
-  const gallerySelector = '.swiper-wrapper';
-  const slides = document.querySelectorAll(`${gallerySelector} .swiper-slide`);
-
-  slides.forEach((slide, index) => {
-    const img = slide.querySelector('img');
-
-    img.addEventListener('click', function(e) {
-      e.preventDefault();
-      openPhotoSwipe(index);
-    });
-  });
-
-  function openPhotoSwipe(index) {
-    const pswpElement = document.querySelector('.pswp');
-    const items = slides.map(slide => {
-      const img = slide.querySelector('img');
-
-      return {
-        src: img.dataset.fullSrc || img.src,
-        w: 1200, // примерные размеры, будут уточнены при загрузке
-        h: 800,
-        msrc: img.src // миниатюра для плавного перехода
-      };
-    });
-
-    const options = {
-      index,
-      history: false,
-      bgOpacity: 0.9,
-      showAnimationDuration: 300,
-      hideAnimationDuration: 300,
-      getThumbBoundsFn: function(index) {
-        const thumbnail = slides[index].querySelector('img');
-        const pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
-        const rect = thumbnail.getBoundingClientRect();
-        return {x: rect.left, y: rect.top + pageYScroll, w: rect.width};
-      }
-    };
-
-    const gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
-
-    gallery.listen('gettingData', function(index, item) {
-      // Загружаем изображение для определения его реальных размеров
-      const img = new Image();
-      img.onload = function() {
-        item.w = this.width;
-        item.h = this.height;
-        gallery.updateSize(true);
-      };
-      img.src = item.src;
-    });
-
-    gallery.init();
-  }
 }

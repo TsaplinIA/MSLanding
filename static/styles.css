@@ -102,11 +102,6 @@ body.menu-open {
   transform: rotate(-45deg) translate(7px, -6px);
 }
 
-/* Небольшие модификации для PhotoSwipe */
-.pswp__bg {
-  background-color: rgba(0, 0, 0, 0.9) !important;
-}
-
 /* Адаптивные исправления для Safari и iOS */
 @supports (-webkit-touch-callout: none) {
   #hero {
