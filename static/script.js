@@ -11,7 +11,7 @@ function loadTopPlayers() {
   const ratingContainer = document.querySelector('#rating .bg-white\\/5');
 
   // URL для загрузки рейтинга (можно вынести в конфигурацию)
-  const RATING_URL = '/static/rating.json';
+  const RATING_URL = './rating.json';
 
   // Загружаем данные из JSON файла
   fetch(RATING_URL)
