@@ -213,23 +213,49 @@ function setupNavigation() {
 }
 
 /**
- * Настройка слайдера Swiper (без PhotoSwipe)
+ * Настройка слайдеров Swiper
  */
 function setupGallery() {
-  // Инициализация слайдера Swiper
-  const swiper = new Swiper(".mySwiper", {
+  // Инициализация слайдера для корпоративных мероприятий
+  const corporateSwiper = new Swiper(".corporateSwiper", {
     slidesPerView: 1,
     spaceBetween: 30,
     loop: true,
     grabCursor: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
     // Кнопки навигации
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+      nextEl: ".corporateSwiper .swiper-button-next",
+      prevEl: ".corporateSwiper .swiper-button-prev",
     },
     // Пагинация (точки)
     pagination: {
-      el: ".swiper-pagination",
+      el: ".corporateSwiper .swiper-pagination",
+      clickable: true,
+    }
+  });
+
+  // Инициализация слайдера для интерьера
+  const interiorSwiper = new Swiper(".interiorSwiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    grabCursor: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    // Кнопки навигации
+    navigation: {
+      nextEl: ".interiorSwiper .swiper-button-next",
+      prevEl: ".interiorSwiper .swiper-button-prev",
+    },
+    // Пагинация (точки)
+    pagination: {
+      el: ".interiorSwiper .swiper-pagination",
       clickable: true,
     }
   });
