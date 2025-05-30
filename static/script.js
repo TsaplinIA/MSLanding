@@ -2,23 +2,22 @@
  * Main JavaScript file for the MafiaStyle website
  * Structured with section-specific functionality
  */
+
 /**
- * Загрузка рейтинга игроков с сервера
+ * Загрузка рейтинга игроков из внешнего источника
  */
 function loadTopPlayers() {
   // Контейнер для топ-3 игроков
   const ratingContainer = document.querySelector('#rating .bg-white\\/5');
 
-  // Сохраняем исходное содержимое для возможного восстановления в случае ошибки
-  const originalContent = ratingContainer.innerHTML;
+  // URL для загрузки рейтинга (можно вынести в конфигурацию)
+  const RATING_URL = window.RATING_API_URL || '/static/rating.json';
 
-  // URL до API с рейтингом (замените на свой)
-  const apiUrl = 'https://your-service-domain.com/api/top-players';
-
-  fetch(apiUrl)
+  // Загружаем данные из JSON файла
+  fetch(RATING_URL)
     .then(response => {
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error('Не удалось загрузить данные рейтинга');
       }
       return response.json();
     })
@@ -26,13 +25,13 @@ function loadTopPlayers() {
       // Очистить текущий рейтинг
       ratingContainer.innerHTML = '';
 
-      // Получаем шаблон
-      const template = document.getElementById('player-template');
-
       // Проверяем наличие данных
       if (!data || data.length === 0) {
-        throw new Error('No data received');
+        throw new Error('Нет данных для отображения');
       }
+
+      // Получаем шаблон
+      const template = document.getElementById('player-template');
 
       // Добавляем каждого игрока
       data.forEach((player, index) => {
@@ -60,8 +59,15 @@ function loadTopPlayers() {
     })
     .catch(error => {
       console.error('Ошибка загрузки рейтинга:', error);
-      // В случае ошибки восстанавливаем исходное содержимое
-      ratingContainer.innerHTML = originalContent;
+
+      // В случае ошибки показываем сообщение об отсутствии данных
+      ratingContainer.innerHTML = `
+        <div class="text-center py-12">
+          <i class="fas fa-exclamation-triangle text-accent text-4xl mb-4"></i>
+          <h3 class="text-xl font-bold mb-2">Данные рейтинга недоступны</h3>
+          <p class="text-lg opacity-80">Попробуйте обновить страницу позже</p>
+        </div>
+      `;
     });
 }
 
